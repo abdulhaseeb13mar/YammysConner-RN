@@ -23,8 +23,10 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import RNBootSplash from 'react-native-bootsplash';
 
 const App: () => React$Node = () => {
+  RNBootSplash.hide();
   return (
     <>
       <StatusBar barStyle="dark-content" />
