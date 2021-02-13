@@ -9,11 +9,29 @@ export const UserAction = (userinfo) => {
   };
 };
 
-export const Action_2 = (any_Argument) => {
+export const setCrntPdt = (paintingInfo) => {
   return async (dispatch) => {
     dispatch({
-      type: ActionTypes.ACTION_TYPE_2,
-      payload: any_Argument,
+      type: ActionTypes.SET_CURRENT_PRODUCT,
+      payload: paintingInfo,
+    });
+  };
+};
+
+export const setFavAction = (favItem) => {
+  return async (dispatch) => {
+    dispatch({
+      type: ActionTypes.SET_FAVOURITE,
+      payload: favItem,
+    });
+  };
+};
+
+export const removeFavAction = (itemId) => {
+  return async (dispatch) => {
+    dispatch({
+      type: ActionTypes.REMOVE_FAVOURITE,
+      payload: itemId,
     });
   };
 };

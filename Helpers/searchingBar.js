@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {Measurements} from '../Resuables/Measurement';
-import {colors} from '../Resuables/frequentColors';
+import dim from './heightWidth';
+import colors from './colors';
 
 export default function SearchBar(props) {
   const [isFocused, setisFocused] = useState(false);
@@ -15,19 +15,21 @@ export default function SearchBar(props) {
 
   return (
     <View style={styles.SB_Wrapper}>
-      <View style={styles.SB_icon}>
+      {/* <View style={styles.SB_icon}>
         <FontAwesome
           name="search"
           size={18}
           color={isFocused ? colors.primary : colors.lightGrey1}
         />
-      </View>
+      </View> */}
       <TextInput
         style={styles.SB_input}
-        placeholder="Search Lamps..."
+        placeholder="Type Here for Search..."
         onBlur={() => ChangeFocus(false)}
         onFocus={() => ChangeFocus(true)}
         onChangeText={onChangeText}
+        editable={props.editable}
+        // editable={false}
       />
     </View>
   );
@@ -45,11 +47,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 8,
     borderRadius: 10,
-    width: Measurements.width * 0.9,
+    width: '100%',
     paddingHorizontal: 10,
-    height: Measurements.height * 0.07,
+    height: dim.height * 0.07,
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: {
